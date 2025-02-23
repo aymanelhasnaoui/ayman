@@ -360,7 +360,7 @@ span{
     transition: 0.4s ease-in-out;
 }
 .skill-box:hover{
-    background: white;
+    background: #c1c1c1;
     color: black;
     border: 5px solid var(--main-color);
     transform: scale(1.03);
