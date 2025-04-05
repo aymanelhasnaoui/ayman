@@ -12,8 +12,8 @@
 :root{
     --bg-color: #080808;
     --second-bg-color: #131313;
-    --text-color: #c1c1c1;
-    --main-color: #32838a;
+    --text-color: white;
+    --main-color: #caa889;
 }
 
 html{
@@ -360,7 +360,7 @@ span{
     transition: 0.4s ease-in-out;
 }
 .skill-box:hover{
-    background: #c1c1c1;
+    background: white;
     color: black;
     border: 5px solid var(--main-color);
     transform: scale(1.03);
@@ -541,6 +541,16 @@ span{
     color: white;
 }
 
+/* General Fix to Prevent Horizontal Scroll */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Large tablets and small laptops */
 @media (max-width: 1285px) {
     html {
         font-size: 14px;
@@ -601,13 +611,15 @@ span{
     .navbar {
         position: absolute;
         top: 100%;
-        right: 0;
+        left: 0;
         width: 100%;
         padding: 1rem 3%;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(20px);
         border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
         border-left: 2px solid var(--main-color);
+        border-right: 2px solid var(--main-color);
         border-bottom: 2px solid var(--main-color);
         display: none;
         flex-direction: column;
