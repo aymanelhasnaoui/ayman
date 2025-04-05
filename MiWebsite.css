@@ -541,97 +541,185 @@ span{
     color: white;
 }
 
-@media(max-width:1285px){
-    html{
-        font-size: 5;
+@media (max-width: 1285px) {
+    html {
+        font-size: 14px;
     }
-    .skills-container{
+    .skills-container {
         padding-bottom: 7rem;
-        grid-template-columns: repeat(2,1fr);
-        margin: 0 5rem;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 3rem;
     }
 }
-@media(max-width:991px){
-    header{
+
+/* Tablets */
+@media (max-width: 991px) {
+    header {
         padding: 2rem 3%;
     }
-    section{
+    section {
         padding: 10rem 3% 2rem;
     }
-    .timeline-item::before{
+    .timeline-item::before {
         left: 7px;
     }
-    .timeline-item:nth-child(odd){
+    .timeline-item:nth-child(odd) {
         padding-right: 0;
         text-align: left;
     }
     .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even){
+    .timeline-item:nth-child(even) {
         padding-left: 37px;
     }
-    .timeline-dot{
+    .timeline-dot {
         left: 0;
     }
-    .skills{
+    .skills {
         padding-bottom: 7rem;
     }
-    .projects .wrapper{
-        grid-template-columns: repeat(1,1fr);
+    .projects .wrapper {
+        grid-template-columns: repeat(1, 1fr);
     }
-    .contact form{
+    .contact form {
         flex-direction: column;
     }
-    .footer{
+    .footer {
         padding: 2rem;
     }
 }
-@media(max-width:895){
-    #menu-icon{
+
+/* Phones */
+@media (max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+
+    #menu-icon {
         display: block;
     }
-    .navbar{
+
+    .navbar {
         position: absolute;
         top: 100%;
         right: 0;
-        width: 50%;
+        width: 100%;
         padding: 1rem 3%;
-        background: rgba(0,0,0,0.8);
+        background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(20px);
         border-bottom-left-radius: 2rem;
         border-left: 2px solid var(--main-color);
         border-bottom: 2px solid var(--main-color);
         display: none;
+        flex-direction: column;
     }
-    .navbar.active{
-        display: block;
+
+    .navbar.active {
+        display: flex;
     }
-    .navbar a{
+
+    .navbar a {
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 2rem 0;
         color: white;
+        text-align: center;
     }
-    .home{
+
+    .home {
         flex-direction: column-reverse;
-        margin: 5rem 4rem;
+        margin: 3rem 2rem;
     }
-    .home-content h3{
-        font-size: 2.6rem;
+
+    .home-content h3 {
+        font-size: 2rem;
     }
-    .home-content h1{
-        font-size: 8rem;
+
+    .home-content h1 {
+        font-size: 3.5rem;
     }
-    .home-content p{
-        max-width: 600px;
+
+    .home-content p {
+        font-size: 1.5rem;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .home-img img {
+        width: 80vw;
         margin: 0 auto;
     }
-    .home-img img{
-        width: 56vw;
+
+    .education h2 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
     }
-    .skills h2{
-        margin-bottom: 3;
+    
+   
+
+    .skills h2 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
     }
-    .skills-container{
-        grid-template-columns: repeat(1,1fr);
+
+    .skills h4 {
+        font-size: 17px;
     }
+
+
+    .skills p {
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        margin: 0 1rem;
+        padding-bottom: 5rem;
+    }
+
+    .projects h2 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .projects .wrapper {
+        grid-template-columns: 1fr;
+        margin: 0 1rem;
+    }
+
+    .contact h2 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .contact form {
+        padding: 0 1rem;
+    }
+
+    .footer {
+        text-align: center;
+    }  
+
+    /* Prevent text selection */
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Remove tap highlight on mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Optional: Prevent long-press selection */
+body {
+    -webkit-touch-callout: none;
+}
+
 }
