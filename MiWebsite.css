@@ -251,76 +251,132 @@ span{
 .education h2{
     margin-bottom: 5rem;
 }
+/* ---------- TIMELINE (replace your current timeline section with this) ---------- */
+
 .timeline-items {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     position: relative;
-    display: block;
+    padding: 4rem 0; /* spacing top/bottom */
 }
+
+/* central vertical line */
 .timeline-items::before{
     content: "";
     position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
     width: 6px;
     height: 100%;
     background-color: var(--main-color);
-    left: calc(50% - 1px);
     border-radius: 10px;
+    z-index: 1;
 }
+
+/* make each item half width and float them */
 .timeline-item{
-    margin-bottom: 40px;
-    width: 100%;
+    width: 50%;
     position: relative;
+    box-sizing: border-box;
+    padding: 2rem 1.5rem;
+    min-height: 120px; /* ensures enough vertical space for dot placement */
+    clear: both; /* prevents accidental stacking issues */
 }
-.timeline-item:last-child{
-    margin-bottom: 0;
-}
+
+/* left (odd) items */
 .timeline-item:nth-child(odd){
-    padding-right: calc(50% + 30px);
+    float: left;
     text-align: right;
 }
+
+/* right (even) items */
 .timeline-item:nth-child(even){
-    padding-left: calc(50% + 30px);
+    float: right;
+    text-align: left;
 }
+
+/* the dot that sits on the center line */
 .timeline-dot{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 18px; /* adjust vertical alignment */
     height: 21px;
     width: 21px;
     background-color: var(--main-color);
-    box-shadow: 0 0 20px var(--main-color),
-                0 0 40px var(--main-color);
-    position: absolute;
-    left: calc(50% - 8.7px);
+    box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
     border-radius: 50%;
-    top: 10px;
+    z-index: 2;
 }
+
+/* shift the content boxes away from the center line */
+.timeline-content{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border:  3px solid var(--main-color);
+    padding: 30px 40px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    max-width: calc(100% - 120px); /* leave room so the box doesn't cross center */
+    z-index: 2;
+}
+
+/* place the content to the correct side by adding margins */
+.timeline-item:nth-child(odd) .timeline-content{
+    margin-right: 80px; /* pushes the box left (away from center) */
+}
+
+.timeline-item:nth-child(even) .timeline-content{
+    margin-left: 80px;  /* pushes the box right (away from center) */
+}
+
+/* hover */
+.timeline-content:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+/* clear floats after the timeline items container */
+.timeline-items::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+/* text/date styles remain the same (tweak if needed) */
 .timeline-date{
     font-size: 20px;
     font-weight: 800;
     color: white;
     margin: 6px 0 15px;
 }
-.timeline-content{
-    background-color: var(--bg-color);
-    border:  3px solid var(--main-color);
-    padding: 30px 50px;
-    border-radius: 4rem;
-    box-shadow: 0 0 10px var(--main-color);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-.timeline-content:hover{
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--main-color);
-}
-.timeline-content h3{
-    font-size: 20px;
-    color: white;
-    margin: 0 0 10px;
-}
-.timeline-content p{
-    color: white;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 22px; 
+.timeline-content h3{ font-size: 20px; margin-bottom: 10px; }
+.timeline-content p{ font-size: 18px; font-weight: 300; line-height: 22px; }
+
+/* ---------------- Mobile responsiveness ---------------- */
+@media (max-width: 991px) {
+    .timeline-items::before {
+        left: 8px;      /* move line to the left */
+        transform: none;
+    }
+    .timeline-item {
+        width: 100%;
+        float: none;
+        padding-left: 48px; /* leave some space for the line */
+        text-align: left;
+    }
+    .timeline-dot {
+        left: 8px;      /* align dot with the line */
+        transform: none;
+    }
+    .timeline-item .timeline-content {
+        margin: 0 0 2rem 0; /* full-width content under the dot */
+        max-width: none;
+    }
 }
 
 ::-webkit-scrollbar{
@@ -734,4 +790,5 @@ body {
 }
 
 }
+
 
