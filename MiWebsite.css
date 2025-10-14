@@ -251,12 +251,11 @@ span{
 .education h2{
     margin-bottom: 5rem;
 }
-.timeline-items{
+.timeline-items {
     max-width: 1200px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
     position: relative;
+    display: block;
 }
 .timeline-items::before{
     content: "";
@@ -735,3 +734,4 @@ body {
 }
 
 }
+
